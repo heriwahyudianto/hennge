@@ -1,2 +1,2 @@
-# hennge
-hennge mail archiver
+# Hennge
+Hennge mail archiver
