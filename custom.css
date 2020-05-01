@@ -41,3 +41,15 @@ body{
 .ln1-4{
     line-height: 1.4;
 }
+.valign-top{
+    vertical-align: text-top;
+    margin-top: 0;
+}
+.elipsis{
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+}
+.no-wrap{
+    white-space: nowrap;
+}
