@@ -33,37 +33,71 @@
         </div>
         <div id="resultCntDesktop" style="display: none;" class="clearfix">
             <div class="border-top border-bottom bg-lightgrey clearfix p1">
-                <div class="col col-3">From</div>
-                <div class="col col-3">To</div>
-                <div class="col col-5">Subject</div>
-                <div class="col col-1 bold">Date <i class="material-icons md-dark md-cstm valign-sub m-7">arrow_drop_up</i></div>
+                <div class="flex">
+                    <div class="mr2"><i class="material-icons md-dark md-cstm valign-sub m-7"></i></div>
+                    <div class="flex-auto">
+                        <div class="col col-3">From</div>
+                        <div class="col col-3">To</div>
+                        <div class="col col-5">Subject</div>
+                        <div class="col col-1 bold">Date <i class="material-icons md-dark md-cstm valign-sub m-7">arrow_drop_up</i></div>
+                    </div>
+                </div>
             </div>
-            <div id="mail1" class="border-bottom clearfix p1" onmouseover="blueText(1)" onmouseleave="normalText(1)">
-                <div class="col col-3">aaa@example.com</div>
-                <div class="col col-3">zzz@example.com</div>
-                <div class="col col-5">[ HR ] Notice of official announcement</div>
-                <div id="date1" class="col col-1 bold">0:20</div>
+            <div class="flex border-bottom" id="mail1">
+                <div class=""><i class="material-icons md-dark md-cstm ln1-4">delete</i></div>
+                <div class="flex-auto">
+                    <div class=" clearfix p1" onmouseover="blueText(1)" onmouseleave="normalText(1)">
+                        <div class="col col-3">aaa@example.com</div>
+                        <div class="col col-3">zzz@example.com</div>
+                        <div class="col col-5">[ HR ] Notice of official announcement</div>
+                        <div id="date1" class="col col-1 bold">0:20</div>
+                    </div>
+                </div>
             </div>
-            <div id="mail2" class="border-bottom clearfix p1" onmouseover="blueText(2)" onmouseleave="normalText(2)">
-                <div class="col col-3">bbb.bbbb@example.com</div>
-                <div class="col col-3">yyy@example.com</div>
-                <div class="col col-5">[web:333] "Web Contact"</div>
-                <div id="date2" class="col col-1 bold">0:10</div>
+            <div class="flex border-bottom" id="mail2" >
+                <div class=""><i class="material-icons md-dark md-cstm ln1-4">delete</i></div>
+                <div class="flex-auto">
+                    <div class="clearfix p1" onmouseover="blueText(2)" onmouseleave="normalText(2)">
+                        <div class="col col-3">bbb.bbbb@example.com</div>
+                        <div class="col col-3">yyy@example.com</div>
+                        <div class="col col-5">[web:333] "Web Contact"</div>
+                        <div id="date2" class="col col-1 bold">0:10</div>
+                    </div>
+                </div>
             </div>
-            <div id="mail3" class="border-bottom clearfix p1" onmouseover="blueText(3)" onmouseleave="normalText(3)">
-                <div class="col col-3">ccc@example.com</div>
-                <div class="col col-3">xxx@example.com, ... </div>
-                <div class="col col-5">Happy New Year! Greetings for the New Year</div>
-                <div id="date3" class="col col-1 bold">0:10</div>
+            <div class="flex border-bottom" id="mail3">
+                <div class=""><i class="material-icons md-dark md-cstm ln1-4">delete</i></div>
+                <div class="flex-auto">
+                    <div class=" clearfix p1" onmouseover="blueText(3)" onmouseleave="normalText(3)">
+                        <div class="col col-3">ccc@example.com</div>
+                        <div class="col col-3 flex">
+                            <div class="flex-auto">
+                                xxx@example.com, ...
+                            </div>
+                            <div class="bg-lightgrey mr1 pl1 pr1 rounded">
+                                <i class="material-icons md-dark md-cstm valign-sub m-7">exposure_plus_1</i>
+                            </div>  
+                        </div>
+                        <div class="col col-5 flex">
+                            <div class="flex-auto">
+                                Happy New Year! Greetings for the New Year 
+                            </div>
+                            <div>
+                                <i class="material-icons md-dark md-cstm valign-sub m-7 mr1">attach_file</i>
+                            </div> 
+                        </div>
+                        <div id="date3" class="col col-1 bold">0:00</div>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
-    <div id="mobile" class="p2 sm-hide md-hide lg-hide">
-        <div>
+    <div id="mobile" class="sm-hide md-hide lg-hide">
+        <div class="p2">
             <input type="text" id="daterangeMbl" name="daterange" value="01/01/2018 - 01/15/2018" class="border p1 rounded-left width130" />
             <button class="border rounded-right date-btn bg-lightgrey" onclick="getMail();"><i class="material-icons  md-dark md-cstm">search</i></button>
         </div>
-        <div class="border-bottom mt2 pb1">
+        <div class="pl2 border-bottom pb1">
             Results: <span id="mailCount" class="bold" >0</span>  mail(s)
         </div>
         <div id="noResultCntMbl" class="m4">
@@ -85,6 +119,34 @@
                 <div class="m-7"><i class="material-icons m0 p0 ln0 md-10 pl-2-5">arrow_downward</i></div>
                 <div><i class="material-icons md-dark md-10 px-2-5">radio_button_unchecked</i> zzz@example.com</div>
                 <div class="pt1">[ HR ] Notice of official announcement</div>
+            </div>
+            <div class="border-bottom clearfix p1">                
+                <div class="flex">
+                    <div class="flex-auto bold"><i class="material-icons md-cstm valign-sub">email</i> bbb.bbbb@example.com</div>
+                    <div>0:10 <i class="material-icons md-cstm valign-sub">chevron_right</i></div>
+                </div>
+                <div class="m-7"><i class="material-icons m0 p0 ln0 md-10 pl-2-5">arrow_downward</i></div>
+                <div><i class="material-icons md-dark md-10 px-2-5">radio_button_unchecked</i> yyy@example.com</div>
+                <div class="pt1">[web:333] "Web Contact"</div>
+            </div>
+            <div class="border-bottom clearfix p1">                
+                <div class="flex">
+                    <div class="flex-auto bold"><i class="material-icons md-cstm valign-sub">email</i> ccc@example.com</div>
+                    <div>
+                        <i class="material-icons md-dark md-cstm valign-sub mr1">attach_file</i>
+                    </div> 
+                    <div>0:00 <i class="material-icons md-cstm valign-sub">chevron_right</i></div>
+                </div>
+                <div class="m-7"><i class="material-icons m0 p0 ln0 md-10 pl-2-5">arrow_downward</i></div>
+                <div class="flex">
+                    <div class="flex-auto">
+                        <i class="material-icons md-dark md-10 px-2-5">radio_button_unchecked</i> xxx@example.com, ...
+                    </div>
+                    <div class="bg-lightgrey mr1 pl1 pr1 rounded">
+                        <i class="material-icons md-dark md-cstm valign-sub m-7">exposure_plus_1</i>
+                    </div>
+                </div>
+                <div class="pt1">Happy New Year! Greetings for the New Year </div>
             </div>
         </div>
     </div>
