@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html dir="ltr" lang="en-US">
+
+<head>
+    <meta charset="UTF-8" />
+    <title>Mail Archiver</title>
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" media="all" href="basscss.min.css" />
+    <link rel="stylesheet" type="text/css" media="all" href="daterangepicker.css" />
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet">
+    <link rel="stylesheet" type="text/css" media="all" href="custom.css" />
+    
+      <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+      <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+</head>
+
+<body class="m0 p0">
+    <div id="desktop" class="p3 xs-hide">
+        <div>
+            <input type="text" id="daterangeDesktop" name="daterange" value="01/01/2018 - 01/15/2018" class="border p1 rounded-left width130" />
+            <button class="border rounded-right date-btn bg-lightgrey" onclick="getMail();"><i class="material-icons  md-dark md-cstm">search</i></button>
+        </div>
+        <div class="border-bottom mt2 pb1">
+            Results: <span id="mailCountDesktop" class="bold" >0</span>  mail(s)
+        </div>
+        <div id="noResultCntDesktop" class="xs-hide p4 m4">
+            <div class="flex justify-center" ><i class="material-icons  md-dark md-250  md-inactive">all_inbox</i></div>
+            <h3 class="m0 center">Mail Archiver</h3>
+        </div>
+        <div id="resultCntDesktop" style="display: none;" class="clearfix">
+            <div class="border-top border-bottom bg-lightgrey clearfix p1">
+                <div class="col col-3">From</div>
+                <div class="col col-3">To</div>
+                <div class="col col-5">Subject</div>
+                <div class="col col-1 bold">Date <i class="material-icons md-dark md-cstm valign-sub m-7">arrow_drop_up</i></div>
+            </div>
+            <div id="mail1" class="border-bottom clearfix p1" onmouseover="blueText(1)" onmouseleave="normalText(1)">
+                <div class="col col-3">aaa@example.com</div>
+                <div class="col col-3">zzz@example.com</div>
+                <div class="col col-5">[ HR ] Notice of official announcement</div>
+                <div id="date1" class="col col-1 bold">0:20</div>
+            </div>
+            <div id="mail2" class="border-bottom clearfix p1" onmouseover="blueText(2)" onmouseleave="normalText(2)">
+                <div class="col col-3">bbb.bbbb@example.com</div>
+                <div class="col col-3">yyy@example.com</div>
+                <div class="col col-5">[web:333] "Web Contact"</div>
+                <div id="date2" class="col col-1 bold">0:10</div>
+            </div>
+            <div id="mail3" class="border-bottom clearfix p1" onmouseover="blueText(3)" onmouseleave="normalText(3)">
+                <div class="col col-3">ccc@example.com</div>
+                <div class="col col-3">xxx@example.com, ... </div>
+                <div class="col col-5">Happy New Year! Greetings for the New Year</div>
+                <div id="date3" class="col col-1 bold">0:10</div>
+            </div>
+        </div>
+    </div>
+    <div id="mobile" class="p2 sm-hide md-hide lg-hide">
+        <div>
+            <input type="text" id="daterangeMbl" name="daterange" value="01/01/2018 - 01/15/2018" class="border p1 rounded-left width130" />
+            <button class="border rounded-right date-btn bg-lightgrey" onclick="getMail();"><i class="material-icons  md-dark md-cstm">search</i></button>
+        </div>
+        <div class="border-bottom mt2 pb1">
+            Results: <span id="mailCount" class="bold" >0</span>  mail(s)
+        </div>
+        <div id="noResultCntMbl" class="m4">
+            <div class="flex justify-center" ><i class="material-icons  md-dark md-250  md-inactive">all_inbox</i></div>
+            <h3 class="m0 center">Mail Archiver</h3>
+        </div>
+        <div id="resultCntMbl" style="display: none;" class="clearfix">
+            <div class="border-top border-bottom bg-lightgrey clearfix p1">
+                <span class="border-right px1 bold">From <i class="material-icons md-dark md-cstm valign-sub">arrow_drop_down</i></span>
+                <span class="border-right pr1">To</span>
+                <span class="border-right pr1">Subject</span>
+                <span class="">Date</span>
+            </div>
+            <div class="border-bottom clearfix p1">                
+                <div class="flex">
+                    <div class="flex-auto bold"><i class="material-icons md-cstm valign-sub">email</i> aaa@example.com</div>
+                    <div>0:20 <i class="material-icons md-cstm valign-sub">chevron_right</i></div>
+                </div>
+                <div class="m-7"><i class="material-icons m0 p0 ln0 md-10 pl-2-5">arrow_downward</i></div>
+                <div><i class="material-icons md-dark md-10 px-2-5">radio_button_unchecked</i> zzz@example.com</div>
+                <div class="pt1">[ HR ] Notice of official announcement</div>
+            </div>
+        </div>
+    </div>
+    
+
+
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.js"></script>
+
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.22.1/moment.min.js"></script>
+
+    <script type="text/javascript" src="daterangepicker.js"></script>
+    <script type="text/javascript" src="mail.js"></script>
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $(function () {
+                $('input[name="daterange"]').daterangepicker({
+                    opens: 'left'
+                }, function (start, end, label) {
+                    console.log("A new date selection was made: " + start.format('YYYY-MM-DD') +
+                        ' to ' + end.format('YYYY-MM-DD'));
+                });
+            });
+        });
+    </script>
+
+
+
+
+
+</body>
+
+</html>

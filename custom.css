@@ -1,0 +1,40 @@
+body{
+    font-family: sans-serif;
+}
+.width130 {
+    width: 130px;
+}
+.date-btn {
+    vertical-align: bottom;
+    margin-left: -5px;
+}
+.md-cstm{
+    font-size: 18px;
+    margin-top: 5px;
+    margin-bottom: 3px;
+}
+.md-250{
+    font-size: 250px;
+}
+.bg-lightgrey{
+    background-color: lightgray;
+}
+.valign-sub{
+    vertical-align: sub;
+}
+.ln0{ line-height: 0;}
+.md-10{font-size: 10px;}
+.pl-2-5{
+    padding-left: .25rem;
+}
+.px-2-5{
+    padding-left: .25rem;
+    padding-right: .25rem;
+}
+.m-7{
+    margin-top: -7px;
+    margin-bottom: -7px;
+}
+.md-200{
+    font-size: 200px;
+}
